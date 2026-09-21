@@ -1,0 +1,47 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block admin %}
+<h2 class="fw-bold text-primary"><center>Add Employee</center></h2>
+<div class="row mt-3" style="background-color: #e3f2fd;">
+    <div class="col-sm-10 mx-auto mt-5">
+        <div class="card p-4">
+            <form method="post" class="row g-4">
+                {% csrf_token %}
+                <div class="col-sm-6">
+                    <label for="eid" class="form-label"><b>Employee ID</b></label>
+                    <input type="text" name="empid" id="eid" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="ename" class="form-label"><b>Employee Name</b></label>
+                    <input type="text" name="name" id="ename" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="cn" class="form-label"><b>Contact No</b></label>
+                    <input type="number" name="contactno" id="cn" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="em" class="form-label"><b>Email</b></label>
+                    <input type="email" name="email" id="em" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="desig" class="form-label"><b>Designation</b></label>
+                    <input type="text" name="designation" id="desig" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="dept" class="form-label"><b>Department</b></label>
+                    <select name="dept_id" id="dept" class="form-select">
+                        <option value="" selected disabled><b>Select Department</b></option>
+                        {% for d in depts %}
+                        <option value="{{d.id}}">{{d.dept_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-success">Add Employee</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

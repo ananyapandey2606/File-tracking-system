@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+</head>
+
+<body style="background-color:rgb(4, 30, 4); backdrop-filter: blur(8px);">
+    <div class="container-fluid" style="min-height: 100vh;">
+        <div class="row h-100 align-items-center">
+            <div class="col-sm-8 mx-auto border-top border-success border-3 rounded-4">
+                <div class="row">
+                    <div class="col-sm-6 rounded-start-4  text-light " style="background-color:rgb(10, 155, 10);">
+                        <div class="row">
+                            <div class="col-sm-12 mt-5 ms-4">
+                                <img src="{% static 'img/logo.jpg' %}" style="width:180px; border-radius: 15px;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2 class="mt-4 ms-4"><b>File Tracking System</b></h2>
+                            </div>
+                        </div>
+                        <p class="mt-3 ms-4">Secure digital platform for managing official files,<br />approvals
+                            department-wise movement and real-time file tracking.</p>
+                    
+                    <div class="row ms-3 mt-4">
+                        <div class="col-sm-2">
+                            <img src="{% static 'img/lock.jpg' %}" style="width:30px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <h6><b>Secure File Management</b></h6>
+                        </div>
+                    </div>
+                      <div class="row ms-3 mt-4">
+                        <div class="col-sm-2">
+                            <img src="{% static 'img/track1.jpg' %}" style="width:30px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <h6><b>Track File Movement</b></h6>
+                        </div>
+                    </div>
+                      <div class="row ms-3 mt-4">
+                        <div class="col-sm-2">
+                            <img src="{% static 'img/call.jpg.png' %}" style="width:30px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <h6><b>User Board Authentication</b></h6>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-sm-6 bg-light rounded-end-4 p-5">
+                        <div style="width:160px; text-align: center; background-color:lightgreen; border-radius:20px; color:green;">
+                            <b>Green Gas Limited</b></div>
+                        <h1 class="mt-3"><b>User Login</b></h1>
+                        <p class="mt-2">Enter admin credentials to access the dashboard.</p>
+
+                        {% if messages %}
+                        {% for m in messages %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{m}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                        <form method="post" class="mt-5">
+                            {% csrf_token %}
+                            <h6><b>Employee Username/Email</b></h6>
+                            <div class="form-floating mb-3">
+                                <input type="email" name="username" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Username</label>
+                            </div>
+                            <h6><b>Password</b></h6>
+                            <div class="form-floating">
+                                <input type="password" name="password" class="form-control" id="floatingPassword"
+                                    placeholder="Password">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-sm-1"><input type="checkbox"></div>
+                                <div class="col-sm-5"><small>Remember me</small></div>
+                                <div class="col-sm-6" style="color:green;"><small><b>Forgot Password?</b></small></div>
+                            </div>
+                            <button type="submit" class="btn btn-success mt-4 w-100"><b>User Login</b></button>
+                        </form>
+                        <a href="{% url 'index' %}" style="color:green; text-decoration:none;"><h6 style="margin-top: 20px;"><b><-Back to Portal</b></h6></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</body>
+
+</html>

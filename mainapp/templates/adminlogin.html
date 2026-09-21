@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+</head>
+<body style="background-color:rgb(8, 8, 146); backdrop-filter: blur(8px);">
+    <div class="container-fluid" style="height: 100vh;">
+        <div class="row h-100 align-items-center">
+            <div class="col-sm-8 mx-auto border-top border-success border-3 rounded-4">
+                <div class="row">
+                    <div class="col-sm-6 rounded-start-4 p-5 text-light " style="background-color:blue;">
+                        <div class="row">
+                            <div class="col-sm-12">
+                        <img src="{% static 'img/logo.jpg' %}" style="width:220px; border-radius: 15px;"></div></div>
+                        <h1 class="mt-4"><b>Admin Login</b></h1>
+                        <p class="">Admin can manage employees, departments,<br/> file records, tracking and movement workflow</p>
+                    </div>
+                    <div class="col-sm-6 bg-light rounded-end-4 p-5">
+                        <div style="width:160px; text-align: center; background-color:lightblue; border-radius:20px; color:blue;"><b>Administrator Area</b></div>
+                        <h1 class="mt-3"><b>Welcome Admin</b></h1>
+                        <p class="mt-2">Enter admin credentials to access dashboard.</p>
+
+                        {% if messages %} 
+                        {% for m in messages %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                             {{m}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                          {% endfor %}
+                        {% endif %}
+                        <form method="post" class="mt-5">
+                            {% csrf_token %}
+                            <h6><b>Admin Username/Email</b></h6>
+                            <div class="form-floating mb-3">
+                                <input type="email" name="username" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                <label for="floatingInput">Username</label>
+                            </div>
+                            <h6><b>Password</b></h6>
+                            <div class="form-floating">
+                                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-4 w-100"><b>Admin Login</b></button>
+                        </form> 
+                        <a href="{% url 'index' %}" style="text-decoration:none;"><h6 style="color:blue; margin-top:20px;"><b><-Back to Portal</b></h6></a>             
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</body>
+</html>

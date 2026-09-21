@@ -1,0 +1,41 @@
+{% extends 'empbase.html' %}
+{% load static %}
+{% block employee %}
+<h1 class="text-primary"><center><b>Initiate new File</b></center></h1>
+<div class="row">
+    <div class="col-sm-10 mx-auto mt-4">
+        <div class="card p-4 shadow bg-secondary">
+        <form method="post" enctype="multipart/form-data" class="row g-4">
+            {% csrf_token %}
+            <div class="col-sm-12 text-white">
+                <label for="title" class="form-level">Title</label>
+                <input type="text" name="title" class="form-control" id="title">
+            </div>
+            <div class="col-sm-12 text-white">
+                <label for="sub" class="form-level">Subject</label>
+                <textarea name="subject" id="sub" class="form-control" id="sub"></textarea>
+            </div>
+            <div class="col-sm-12">
+                <label for="fa" class="form-label text-white">File_attachment</label>
+                <input type="file" name="file_attachment" class="form-control" id="fa">
+            </div>
+            <div class="col-sm-12 text-white">
+                <h5 class="text-white"><b>Forward To</b></h5>
+                <label for="emp" class="form-label text-white">Select Employee</label>
+                <select name="emp_id" id="emp" class="form-select">
+                    <option value="" selected disabled>Select Employee</option>
+                    {% for emp in employees %}
+                    <option value="{{emp.email}}">
+                        {{emp.name}} ({{emp.department.dept_name}}) -- {{emp.email}}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-sm-12 text-center">
+                <button type="submit" class="btn btn-success">Create</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

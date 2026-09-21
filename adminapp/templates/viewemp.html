@@ -1,0 +1,33 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block admin %}
+<h1 class="fw-bold text-primary mb-4"><center>View Employee</center></h1>
+<div class="row" style="background-color: #e3f2fd;">
+    <div class="col-sm-11 mx-auto mt-5">
+        <div class="card p-4 shadow-lg g-4 bg-white">
+            <table class="table table-hover align-middle">
+                <tr class="table-dark">
+                    <th>EMPID</th>
+                    <th>Name</th>
+                    <th>Contact no</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Designation</th>
+                </tr>
+                {% for e in emps %}
+                <tr>
+                    <th>{{e.empid}}</th>
+                    <th>{{e.name}}</th>
+                    <th>{{e.contactno}}</th>
+                    <th>{{e.email}}</th>
+                    <th>{{e.department}}</th>
+                    <th>{{e.designation}}</th>
+                </tr>
+                {% endfor %}
+                
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

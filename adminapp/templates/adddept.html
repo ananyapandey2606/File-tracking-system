@@ -1,0 +1,18 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+<h1 class="text-primary"><center>Add Department</center></h1>
+<div class="row bg-light">
+    <div class="col-sm-6 mx-auto mt-5">
+        <div class="card p-4 shadow">
+            <h4 class="mb-4"><b>Add Department</b></h4>
+            <form method="post">
+                {% csrf_token %}
+                <label for="dept" class="form-control"><b>Department Name</b></label>
+                <input type="text" name="dept_name" id="dept" class="form-control">
+                <button type="submit" class="btn btn-primary mt-4 w-100">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

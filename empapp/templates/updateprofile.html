@@ -1,0 +1,42 @@
+{% extends 'empbase.html' %}
+{% load static %}
+{% block employee %}
+<h3 class="text-primary"><center>Update Profile</center></h3>
+<div class="row mt-3 bg-dark">
+    <div class="col-sm-10 mx-auto mt-5">
+        <div class="card p-4">
+            <form method="post" enctype="multipart/form-data" class="row g-4">
+                {% csrf_token %}
+                <div class="col-sm-6">
+                    <label for="eid" class="form-label">Employee ID</label>
+                    <input type="text" name="empid" id="eid" value="{{emp.empid}}" class="form-control" disabled>
+                </div>
+                <div class="col-sm-6">
+                    <label for="ename" class="form-label">Employee Name</label>
+                    <input type="text" name="name" id="ename" value="{{emp.name}}" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="cn" class="form-label">Contact No</label>
+                    <input type="number" name="contactno" id="cn" value="{{emp.contactno}}" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="em" class="form-label">Email</label>
+                    <input type="email" name="email" id="em" value="{{emp.email}}" class="form-control" disabled>
+                </div>
+                <div class="col-sm-12">
+                    <label for="pic" class="form-label">Profile Picture(Leave blank for same picture)</label>
+                    <input type="file" name="picture" class="form-control" id="pic">
+                </div>
+                <div class="col-sm-12">
+                    <label for="add" class="form-label">Address</label>
+                    <textarea name="address" id="add" class="form-control">{{emp.address}}</textarea>
+                </div>
+                
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-success">Update Profile</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

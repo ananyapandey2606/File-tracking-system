@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <style>
+        body{
+            height:100vh;
+            font-family: "Poppins", sans-serif;
+            background-image:  linear-gradient(rgba(0, 128, 0, 0.557),rgba(0, 128, 0, 0.507)),url('{% static 'img/bg.jpg' %}');
+            background-size:cover;
+            background-repeat:no repeat;
+            background-position:center;
+        }
+        .local-card{
+            border:1px solid #ccc;
+        }
+        .local-card:hover{
+            border:2px solid green;
+            box-shadow: 0 0 10px gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid border-success border-3" style="height:100vh;">
+        <div class="row h-100 align-items-center">
+            <div class="col-sm-8 mx-auto border-top border-success border-3 rounded-4">
+                <div class="row">
+                    <div class="col-sm-6 rounded-start-4 " style="background-color:#076735">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="{% static 'img/logo.jpg' %}" style="width:160px; margin-top:40px;
+                                 margin-left:20px; border-radius:10px;">
+                                 </div>
+                                </div>
+                                 <div class="row mt-3">
+                                    <div class="col-sm-10">
+                                    <h1 class="text-white ms-4"><b>File Tracking System</b></h1>
+                                </div>
+                            </div>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-12">
+                                            <p class="text-white ms-4">Secure digital platform for official file upload,<br/>
+                                             movement,approvals,department workflow <br/> and real-time tracking.</p>
+                                            </div>
+                                        </div>
+                                             <div class="row mt-3">
+                                                <div class="col-sm-2">
+                                                    <img src="{% static 'img/lock.jpg' %}" style="width:30px; margin-left:20px;">
+                                                </div>
+                                                    <div class="col-sm-8">
+                                                        <h6 class="text-white">Secure File Management</h6>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3 mb-3">
+                                                    <div class="col-sm-2">
+                                                        <img src="{% static 'img/track1.jpg' %}" style="margin-left:20px; width:30px;">
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <h6 class="text-white">Track File Movement</h6>
+                                                    </div>
+                                                </div>
+                    </div>
+                    <div class="col-sm-6 bg-light" style="border:1px solid; border-radius:5px;">
+                        <div class="row">
+                            <div class="col-sm-5 mt-5" style="color:green; margin-left:25px; border:1px solid; background-color:rgb(224, 235, 224); border-radius:10px;">
+                                Green Gas Limited
+                            </div>
+                        </div>
+                            <div class="row mt-3 ms-1">
+                                <div class="col-sm-12">
+                                    <h1 class="mb-0"><b>Official Portal</b></h1>
+                                    <p>Please select your login type to continue.</p>
+                                </div>
+                            </div>
+                            <div class="row mt-4 mx-auto local-card" style="border-radius:5px; margin-left:20px;">
+                                <div class="col-sm-2 mt-4">
+                                    <img src="{% static 'img/call.jpg.png' %}" style="width:30px; margin-left:5px;">
+                                </div>
+                                
+                                <div class="col-sm-12">
+                                    <a href="{% url 'adminlogin' %}" style="text-decoration: none;"><h5 class="text-black mt-2"><b>Admin Login</b></h5></a>
+                                    <p> User, Departments and File Management.</p>
+                                </div>
+                            </div>
+                            <div class="row mt-3 mx-auto local-card" style="border-radius: 5px; margin-left:20px;">
+                                <div class="col-sm-2 mt-4">
+                                    <img src="{% static 'img/call.jpg.png' %}" style="width:30px; margin-left:5px;">
+                                </div>
+                                <div class="col-sm-12">
+                                    <a href="{% url 'userlogin'%}" style="color:black; text-decoration:none; margin-top:4px;"><h5><b>User Login</b></h5></a>
+                                    <p>Upload, update, move and track your files.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</body>
+</html>
